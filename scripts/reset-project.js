@@ -6,6 +6,7 @@
  * You can remove the `reset-project` script from package.json and safely delete this file after running it.
  */
 
+// sai la aqui a diferença
 const fs = require('fs');
 const path = require('path');
 
