@@ -1,0 +1,39 @@
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import List from "../pages/list";
+import User from "../pages/user";
+import CustomTabBar from "../components/CustomTabBar";
+import Calendar from "../pages/calendar";
+import Lembrete from "../pages/lembrete";
+
+const Tab = createBottomTabNavigator();
+
+export default function BottomRoutes(){
+    
+    return(
+        <Tab.Navigator
+            tabBar={props=><CustomTabBar{...props}/>}
+            screenOptions={{
+                headerShown:false
+            }}
+        >
+            <Tab.Screen
+                name="List"
+                component={List}
+            />
+            <Tab.Screen
+                name="User"
+                component={User}
+            />
+            <Tab.Screen
+                name="Calendar"
+                component={Calendar}
+            />
+            <Tab.Screen
+                name="Lembrete"
+                component={Lembrete}
+            />
+            
+        </Tab.Navigator>
+
+    )
+}
