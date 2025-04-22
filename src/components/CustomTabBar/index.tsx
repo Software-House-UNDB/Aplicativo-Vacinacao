@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text,TouchableOpacity, View } from "react-native";
 import { style } from "./style";
-import {Ionicons, FontAwesome, Entypo, AntDesign, MaterialIcons} from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons'
 
 export default function MyTabBar({ navigation }:any) {
     const [activeTab, setActiveTab] = useState('List');
