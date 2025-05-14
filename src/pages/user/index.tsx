@@ -2,22 +2,24 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { style } from "./style";
 import { AntDesign } from '@expo/vector-icons';
-import { useNavigation,NavigationProp} from '@react-navigation/native';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 
+// Tela de perfil do usuário
 export default function User() {
     return (
         <ScrollView style={style.container}>
+            {/* Cabeçalho */}
             <View style={style.header}>
                 <Text style={style.headerText}>Perfil</Text>
             </View>
 
+            {/* Seção de informações do usuário */}
             <View style={style.profileSection}>
                 <View style={style.avatarContainer}>
                     <View style={style.avatar}>
                         <AntDesign name="user" size={60} color="#CCCCCC" style={{padding: 20}} />
                     </View>
                 </View>
-
                 <View style={style.infoCard}>
                     <Text style={style.infoText}>Nome: Josenildo Testador da Silva</Text>
                     <Text style={style.infoText}>CPF: xxx-xxx-xxx-xx</Text>
@@ -27,7 +29,6 @@ export default function User() {
                     <Text style={style.infoText}>Telefone: (xx) xxxx-xxxx</Text>
                     <Text style={style.infoText}>Sexo: Masculino</Text>
                 </View>
-
                 <View style={style.emailCard}>
                     <Text style={style.infoText}>Email: josenildo@email.com</Text>
                     <Text style={style.infoText}>Endereço(opcional):</Text>
@@ -35,6 +36,7 @@ export default function User() {
                 </View>
             </View>
 
+            {/* Seção de configurações e informativos */}
             <View style={style.settingsSection}>
                 <Text style={style.settingsHeader}>Conta e Informativo</Text>
                 <TouchableOpacity style={style.settingsItem}>

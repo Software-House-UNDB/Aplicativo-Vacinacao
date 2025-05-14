@@ -1,15 +1,17 @@
 import React from "react";
-
-import {Text, View, Image, TextInput, TouchableOpacity} from "react-native"
+import { Text, View, Image, TextInput, TouchableOpacity } from "react-native";
 import { style } from "../register/style";
-import Logo from "../../assets/logo.jpeg"
-import {MaterialIcons} from '@expo/vector-icons'
-import { useNavigation,NavigationProp} from '@react-navigation/native';
+import Logo from "../../assets/logo.jpeg";
+import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 
-export default function Register (){
+// Componente principal da tela de Cadastro
+export default function Register () {
+    // Hook para navegação entre telas
     const navigation = useNavigation<NavigationProp<any>>();
     return (
         <View style={style.Container}>
+            {/* Área superior com logo e mensagem de boas-vindas */}
             <View style={style.boxTop}>
                 <Image
                     style={style.Logo}
@@ -19,6 +21,7 @@ export default function Register (){
                 <Text style={style.Text}>Bem-Vindo!!</Text>
                 <Text style={style.Text}>crie sua conta conosco</Text>
             </View>
+            {/* Formulário de cadastro */}
             <View style={style.Main}>
                 <View style={style.boxMid}>
                     <Text style={style.TextInput}>Digite seu E-Mail</Text>
@@ -50,6 +53,7 @@ export default function Register (){
                          />
                     </View>
                 </View>
+                {/* Botões de ação */}
                 <View style={style.boxButton}>
                     <TouchableOpacity style={style.Button1}
                     onPress={() => navigation.navigate('BottomRoutes')}
@@ -62,9 +66,7 @@ export default function Register (){
                         <Text style={style.TextButton2}>JÁ POSSUI LOGIN ?</Text>
                     </TouchableOpacity>
                 </View>
-                
             </View>
-            
         </View>
     )
 }

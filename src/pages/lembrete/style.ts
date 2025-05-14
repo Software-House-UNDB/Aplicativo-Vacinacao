@@ -1,21 +1,33 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions, Animated } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    padding: 16,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
-  header: {
-    backgroundColor: 'white',
-    paddingTop: 50, 
-    paddingBottom: 16,
-    paddingHorizontal: 16,
+  boxTop: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: Dimensions.get("window").height/8,
+    width: '100%',
+    justifyContent: 'center',
     flexDirection: 'row',
+    paddingTop: 59,
+    borderColor: 'gray',
+    borderBottomWidth: 2,
+    backgroundColor: '#fff',
+    zIndex: 1,
+  },
+  boxMiddle: {
+    height: Dimensions.get("window").height / 2.2,
+    width: '100%',
     alignItems: 'center',
-    justifyContent: 'space-between', 
+    justifyContent: 'center',
   },
 
   backButton: {
@@ -41,24 +53,45 @@ const styles = StyleSheet.create({
     fontSize: 24,
     textAlign: 'center',
     marginVertical: 10,
+    marginTop: 40,
   },
 
   card: {
-    backgroundColor: '#6A9CF8',
+    backgroundColor: '#1E90FF',
     borderRadius: 20,
     overflow: 'hidden',
     padding: 16,
     marginVertical: 20,
     elevation: 4,
+    width: '90%', // Adjust the width as neede
   },
 
-  cardHeader: {
+  modalOverlay: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  modalContent: {
+    backgroundColor: '#6A9CF8',
+    borderRadius: 20,
+    padding: 16,
+    width: '90%',
+    elevation: 5,
+  },
+
+  modalHeader: {
     backgroundColor: '#236EFA',
     paddingVertical: 10,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     alignItems: 'center',
-    marginHorizontal: -16, 
+    marginHorizontal: -16,
     marginTop: -16,
     marginBottom: 10,
   },
@@ -86,6 +119,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 6,
     fontSize: 16,
+    borderWidth:1
   },
 
   timeRow: {
@@ -101,10 +135,12 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     paddingVertical: 8,
     paddingHorizontal: 8,
+    borderWidth: 1,
   },
 
   buttonContainer: {
     alignItems: 'center',
+    height: Dimensions.get("window").height / 7,
   },
 
   button: {
@@ -113,9 +149,10 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     borderRadius: 4,
     alignItems: 'center',
-    marginTop: 8,
+    marginTop: 20,
     width: '50%',
     elevation: 5,
+    
   },
 
   buttonText: {

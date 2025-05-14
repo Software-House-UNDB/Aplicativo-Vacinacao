@@ -8,24 +8,30 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     boxTop: {
-        height:Dimensions.get("window").height/8,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: Dimensions.get("window").height/8,
         width: '100%',
-        justifyContent:'center',
-        flexDirection:'row',
-        paddingTop: 49,
-        borderColor:'gray',
-        borderBottomWidth:2,
+        justifyContent: 'center',
+        flexDirection: 'row',
+        paddingTop: 59,
+        borderColor: 'gray',
+        borderBottomWidth: 2,
+        backgroundColor: '#fff',
+        zIndex: 1,
         
        
     },
     boxMiddle: {
-        height:Dimensions.get("window").height/2,
+        height:Dimensions.get("window").height/1.8,
         width: '100%',
         alignContent:'center',
         justifyContent:'center',
     },
     boxBottom: {
-        height:Dimensions.get("window").height/3.5,
+        height:Dimensions.get("window").height/4.5,
         width: '100%',
         alignItems:'center',
         justifyContent:'center'
@@ -46,17 +52,8 @@ const styles = StyleSheet.create({
     ImageLogo:{
         width:'90%',
         height:160,
-        borderRadius:20,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 3,
-        },
-        shadowOpacity: 0.27,
-        shadowRadius: 4.65,
-        
-        elevation: 6,
-        
+        borderRadius:25
+
     },
     AreaFuncButtom:{
         flexDirection:'row',
@@ -68,7 +65,7 @@ const styles = StyleSheet.create({
         height: 100,
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor: '#00aeff',
+        backgroundColor: '#1E90FF',
         marginHorizontal:10,
         borderRadius:20,
         shadowColor: "#000",

@@ -46,6 +46,7 @@ export default function Routes (){
                 name="Lembrete"
                 component={Lembrete}
             />
+          
            
           
         </Stack.Navigator>

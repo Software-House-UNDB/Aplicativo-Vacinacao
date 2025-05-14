@@ -1,3 +1,4 @@
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import List from "../pages/list";
 import User from "../pages/user";

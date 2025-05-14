@@ -1,15 +1,17 @@
 import React from "react";
-
-import {Text, View, Image, TextInput, TouchableOpacity} from "react-native"
+import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import { style } from "./style";
-import Logo from "../../assets/logo.jpeg"
-import {MaterialIcons} from '@expo/vector-icons'
-import { useNavigation,NavigationProp} from '@react-navigation/native';
+import Logo from "../../assets/logo.jpeg";
+import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 
-export default function Login (){
+// Componente principal da tela de Login
+export default function Login () {
+    // Hook para navegação entre telas
     const navigation = useNavigation<NavigationProp<any>>();
     return (
         <View style={style.container}>
+            {/* Área superior com logo e mensagem de boas-vindas */}
             <View style={style.boxTop}>
                 <Image
                     style={style.logo}
@@ -18,6 +20,7 @@ export default function Login (){
                 />
                 <Text style={style.text}>Seja Bem-Vindo!</Text>
             </View >
+            {/* Área do formulário de login */}
             <View style={style.boxMid}>
                 <Text style={style.titleInput}>Endereço de e-mail</Text>
                 <View style={style.boxInput}>
@@ -31,16 +34,18 @@ export default function Login (){
                 </View>
                 <Text style={style.titleInput}>Senha</Text>
                 <View style={style.boxInput}>
-                <TextInput
+                    <TextInput
                         style={style.Input} 
                     />
-                <MaterialIcons 
+                    <MaterialIcons 
                         name="remove-red-eye"
                         size={20}
                     />
                 </View>
+                {/* Link para recuperação de senha */}
                 <Text style={style.RenovSenha}>Esqueci a senha</Text>
             </View>
+            {/* Botões de ação */}
             <View style={style.boxButton}>
                 <TouchableOpacity style={style.Button}
                 onPress={() => navigation.navigate('BottomRoutes')}

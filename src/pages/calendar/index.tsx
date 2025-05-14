@@ -1,7 +1,8 @@
 import React from "react";
-import {Text} from 'react-native'
+import { Text } from 'react-native';
 
-export default function Calendar (){
+// Tela simples de calendário (em desenvolvimento)
+export default function Calendar () {
     return(
         <Text>
             Ola mundo calendario
