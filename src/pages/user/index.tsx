@@ -1,12 +1,12 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { style } from "./style";
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation,NavigationProp} from '@react-navigation/native';
 
 export default function User() {
     return (
-        <View style={style.container}>
+        <ScrollView style={style.container}>
             <View style={style.header}>
                 <Text style={style.headerText}>Perfil</Text>
             </View>
@@ -50,6 +50,6 @@ export default function User() {
                     <AntDesign name="right" size={20} color="#000000" />
                 </TouchableOpacity>
             </View>
-        </View>
+        </ScrollView>
     );
 }
