@@ -5,6 +5,7 @@ import User from "../pages/user";
 import CustomTabBar from "../components/CustomTabBar";
 import Calendar from "../pages/calendar";
 import Lembrete from "../pages/lembrete";
+import Perfil from "../pages/perfil";
 
 const Tab = createBottomTabNavigator();
 
@@ -33,7 +34,13 @@ export default function BottomRoutes(){
                 name="Lembrete"
                 component={Lembrete}
             />
-            
+            <Tab.Screen
+                name="Perfil"
+                component={Perfil}
+                options={{
+                    tabBarButton: () => null,
+                }}
+            />
         </Tab.Navigator>
 
     )

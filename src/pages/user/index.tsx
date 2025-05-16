@@ -4,8 +4,12 @@ import { style } from "./style";
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 
+
 // Tela de perfil do usuário
 export default function User() {
+    // Adicionando hook de navegação
+    const navigation = useNavigation<NavigationProp<any>>();
+    
     return (
         <ScrollView style={style.container}>
             {/* Cabeçalho */}
@@ -39,7 +43,10 @@ export default function User() {
             {/* Seção de configurações e informativos */}
             <View style={style.settingsSection}>
                 <Text style={style.settingsHeader}>Conta e Informativo</Text>
-                <TouchableOpacity style={style.settingsItem}>
+                <TouchableOpacity 
+                    style={style.settingsItem}
+                    onPress={() => navigation.navigate('Perfil')}
+                >
                     <Text style={style.settingsText}>Edição de Perfil</Text>
                     <AntDesign name="right" size={20} color="#000000" />
                 </TouchableOpacity>

@@ -6,6 +6,7 @@ import BottomRoutes from "./bottom.routes";
 import List from "../pages/list";
 import Calendar from "../pages/calendar";
 import Lembrete from "../pages/lembrete";
+import Perfil from "../pages/perfil";
 
 export default function Routes (){
     const Stack = createStackNavigator()
@@ -45,6 +46,10 @@ export default function Routes (){
             <Stack.Screen
                 name="Lembrete"
                 component={Lembrete}
+            />
+            <Stack.Screen
+                name="Perfil"
+                component={Perfil}
             />
           
            
