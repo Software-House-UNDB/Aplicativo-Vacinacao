@@ -129,13 +129,17 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
 
-  smallInput: {
+  datePickerButton: {
     flex: 1,
     backgroundColor: '#FFFFFF',
     borderRadius: 6,
     paddingVertical: 8,
     paddingHorizontal: 8,
     borderWidth: 1,
+  },
+
+  datePickerText: {
+    fontSize: 16,
   },
 
   buttonContainer: {

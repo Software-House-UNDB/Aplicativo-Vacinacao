@@ -1,10 +1,46 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef } from 'react';
 import { Text, View, TextInput, TouchableOpacity, Animated, Modal } from "react-native";
+import DateTimePicker, {DateTimePickerEvent} from '@react-native-community/datetimepicker';
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import { AntDesign } from '@expo/vector-icons';
 import styles from './style';
 
 // Tela de lembretes de vacinação
 export default function LembretesTela() {
+  const [date,setDate] = useState<Date>(new Date());
+  const [mode,setMode] = useState('date');
+  const [showDatePicker,setShowDatePicker] = useState<boolean>(false);
+  const [showTimePicker, setShowTimePicker] = useState<boolean>(false);
+
+  const  dateStr = format(date, 'yyyy-MM-dd');
+  const  timeStr = format(date, 'HH:mm');
+
+
+  const onDateChange = (event: DateTimePickerEvent, selectedDate?: Date) => {
+    const currentDate = selectedDate || date;
+    setShowDatePicker(false);
+
+    if (event.type === 'set') {
+      const hours = date.getHours();
+      const minute = date.getMinutes();
+      currentDate.setHours(hours);
+      currentDate.setMinutes(minute);
+      setDate(currentDate);
+    }
+  };
+
+  const onTimeChange = (event: DateTimePickerEvent, selectedTime?: Date) => {
+    const currentDate = new Date(date);
+    setShowTimePicker(false);
+
+    if (event.type === 'set' && selectedTime) {
+      currentDate.setHours(selectedTime.getHours());
+      currentDate.setMinutes(selectedTime.getMinutes());
+      setDate(currentDate);
+    } 
+  };
+
   // Estado para controlar a visibilidade do modal
   const [modalVisible, setModalVisible] = useState(false);
   // Animação para o modal
@@ -87,12 +123,38 @@ export default function LembretesTela() {
               <Text style={styles.label}>Vacina</Text>
               <TextInput style={styles.input} />
             </View>
+
             <View style={styles.inputGroup}>
               <Text style={styles.label}>Data e Hora</Text>
               <View style={styles.timeRow}>
-                <TextInput style={styles.smallInput} />
-                <TextInput style={styles.smallInput} />
-                <TextInput style={styles.smallInput} />
+
+                <TouchableOpacity style={styles.datePickerButton} onPress={() => setShowDatePicker(true)}>
+                  <Text style={styles.datePickerText}>
+                    {format(date, 'dd/MM/yyyy', {locale: ptBR})}
+                  </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.datePickerButton} onPress={() => setShowTimePicker(true)}>
+                  <Text style={styles.datePickerText}>
+                    {format(date, 'HH:mm')}
+                  </Text>
+                </TouchableOpacity>
+
+                {showDatePicker && (
+                  <DateTimePicker mode="date" display="default" value={date} is24Hour={true} onChange={onDateChange} minimumDate={new Date()}
+                />
+                )}
+
+                {showTimePicker && (
+                  <DateTimePicker
+                    value={date}
+                    mode="time"
+                    is24Hour={true}
+                    display="default"
+                    onChange={onTimeChange}
+                  />
+            )}
+
               </View>
             </View>
             <View style={styles.inputGroup}>
