@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
 import { style } from "./style";
 import Logo from "../../assets/logo.jpeg";
@@ -9,6 +9,15 @@ import { useNavigation, NavigationProp } from '@react-navigation/native';
 export default function Login () {
     // Hook para navegação entre telas
     const navigation = useNavigation<NavigationProp<any>>();
+    
+    // Estado para controlar a visibilidade da senha
+    const [senhaVisivel, setSenhaVisivel] = useState(false);
+    
+    // Função para alternar a visibilidade da senha
+    const toggleSenhaVisivel = () => {
+        setSenhaVisivel(!senhaVisivel);
+    };
+    
     return (
         <View style={style.container}>
             {/* Área superior com logo e mensagem de boas-vindas */}
@@ -35,12 +44,15 @@ export default function Login () {
                 <Text style={style.titleInput}>Senha</Text>
                 <View style={style.boxInput}>
                     <TextInput
-                        style={style.Input} 
+                        style={style.Input}
+                        secureTextEntry={!senhaVisivel} 
                     />
-                    <MaterialIcons 
-                        name="remove-red-eye"
-                        size={20}
-                    />
+                    <TouchableOpacity onPress={toggleSenhaVisivel}>
+                        <MaterialIcons 
+                            name={senhaVisivel ? "visibility-off" : "visibility"}
+                            size={20}
+                        />
+                    </TouchableOpacity>
                 </View>
                 {/* Link para recuperação de senha */}
                 <Text style={style.RenovSenha}>Esqueci a senha</Text>
