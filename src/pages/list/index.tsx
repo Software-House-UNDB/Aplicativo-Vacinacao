@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import styles from './style';
 import { AntDesign } from '@expo/vector-icons';
-import vacina from "../../assets/vacina.jpg";
+import vacina from "../../assets/vacina.png";
 import gripe from "../../assets/gripe.jpg";
 import vacine from "../../assets/vacine.png";  
 import historico from "../../assets/historico.png";
@@ -46,6 +46,7 @@ export default function List () {
                         resizeMode="contain"
                     />
                 </TouchableOpacity >
+                
             </View>
             {/* Atalhos para funcionalidades principais */}
             <View style={styles.boxBottom}>

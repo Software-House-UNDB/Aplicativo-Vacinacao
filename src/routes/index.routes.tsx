@@ -7,6 +7,7 @@ import List from "../pages/list";
 import Calendar from "../pages/calendar";
 import Lembrete from "../pages/lembrete";
 import Perfil from "../pages/perfil";
+import Configpage from "../pages/configpage";
 
 export default function Routes (){
     const Stack = createStackNavigator()
@@ -50,6 +51,10 @@ export default function Routes (){
             <Stack.Screen
                 name="Perfil"
                 component={Perfil}
+            />
+            <Stack.Screen
+                name="Configpage"
+                component={Configpage}
             />
           
            

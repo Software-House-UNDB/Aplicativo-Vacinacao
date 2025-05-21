@@ -17,19 +17,17 @@ export default function Perfil() {
             {/* Cabeçalho da tela com botão de voltar e título */}
             <View style={style.boxTop}>
                 {/* Botão para voltar à tela anterior */}
-                <TouchableOpacity onPress={() => navigation.goBack()}>
+                <TouchableOpacity onPress={() => navigation.navigate('User')}>
                     <AntDesign
                         name="arrowleft" // Ícone de seta para esquerda
-                        style={{fontSize: 28, marginRight: 10}} // Estilo inline do ícone
+                        style={{fontSize: 28, marginRight: 55,}} // Estilo inline do ícone
                     />
                 </TouchableOpacity>
                 {/* Título da tela dividido em duas partes com cores diferentes */}
-                <Text style={{fontSize:24, fontWeight:"bold"}}>
-                    Perfil
+                <Text style={{fontSize:24, fontWeight:"bold", alignItems:'center'}}>
+                    Edição de perfil
                 </Text>
-                <Text style={{fontSize:24, fontWeight:"bold", color:'#236EFA'}}>
-                    Plus
-                </Text>
+    
             </View>
             
             {/* Container principal do formulário */}
@@ -92,7 +90,7 @@ export default function Perfil() {
                 </View>
                 
                 {/* Botão para salvar alterações e voltar à tela anterior */}
-                <TouchableOpacity style={style.saveButton} onPress={() => navigation.goBack()}>
+                <TouchableOpacity style={style.saveButton} onPress={() => navigation.navigate('User')}>
                     <Text style={style.saveButtonText}>Salvar Alterações</Text>
                 </TouchableOpacity>
             </View>

@@ -7,15 +7,23 @@ export const style = StyleSheet.create({
         backgroundColor: '#FFFFFF',
     },
     header: {
-        paddingTop: 40,
+        flexDirection: 'row',
         alignItems: 'center',
+        paddingVertical: 15,
+        paddingHorizontal: 20,
         borderBottomWidth: 1,
-        borderBottomColor: '#E5E5E5',
+        borderBottomColor: '#EEEEEE',
+        paddingTop: 40,
     },
     headerText: {
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: 'bold',
-        marginBottom: 15,
+        flex: 1,
+        textAlign: 'center',
+        marginRight: 24, // Para compensar o espaço do botão de voltar
+    },
+    backButton: {
+        padding: 5,
     },
     profileSection: {
         backgroundColor: '#F5F5F5',

@@ -14,6 +14,12 @@ export default function User() {
         <ScrollView style={style.container}>
             {/* Cabeçalho */}
             <View style={style.header}>
+                <TouchableOpacity 
+                    onPress={() => navigation.navigate('Configpage')}
+                    style={style.backButton}
+                >
+                    <AntDesign name="arrowleft" size={24} color="#000000" />
+                </TouchableOpacity>
                 <Text style={style.headerText}>Perfil</Text>
             </View>
 

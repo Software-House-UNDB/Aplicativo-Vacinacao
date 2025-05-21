@@ -6,6 +6,7 @@ import CustomTabBar from "../components/CustomTabBar";
 import Calendar from "../pages/calendar";
 import Lembrete from "../pages/lembrete";
 import Perfil from "../pages/perfil";
+import Configpage from "../pages/configpage";
 
 const Tab = createBottomTabNavigator();
 
@@ -40,6 +41,10 @@ export default function BottomRoutes(){
                 options={{
                     tabBarButton: () => null,
                 }}
+            />
+            <Tab.Screen
+                name="Configpage"
+                component={Configpage}
             />
         </Tab.Navigator>
 
