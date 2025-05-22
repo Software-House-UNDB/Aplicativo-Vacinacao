@@ -53,9 +53,8 @@ export default function Register () {
             {/* Área superior com logo e mensagem de boas-vindas */}
             <View style={style.boxTop}>
                 <Text style={{fontSize:28, fontWeight:"bold"}}>
-                    Vacina<Text style={{color:'#1E90FF'}}>Plus</Text>
+                    Vacina<Text style={{color:'#1E90FF',marginBottom:25}}>Plus</Text>
                 </Text>
-                <Text style={style.Text}>Bem-Vindo!!</Text>
                 <Text style={style.Text}>crie sua conta conosco</Text>
             </View>
             {/* Formulário de cadastro */}
