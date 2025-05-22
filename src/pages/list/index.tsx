@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image } from 'react-native';
+import { View, Text, TouchableOpacity, Image, Linking } from 'react-native';
 import styles from './style';
 import { AntDesign } from '@expo/vector-icons';
 import vacina from "../../assets/vacina.png";
@@ -10,6 +10,32 @@ import saude from "../../assets/saude.png";
 
 // Tela principal após login, exibe campanhas e atalhos
 export default function List () {
+    
+    // Função para abrir o link da campanha de vacinação
+    const abrirLinkVacinaMais = async () => {
+        const url = 'https://susconecta.org.br/backup/campanha-vacina-mais-lanca-novas-pecas-para-promover-a-imunizacao-no-brasil/23934/';
+        const supported = await Linking.canOpenURL(url);
+        
+        if (supported) {
+            await Linking.openURL(url);
+        } else {
+            console.error("Não foi possível abrir o link: " + url);
+        }
+    };
+    
+    // Função para abrir o link da campanha de vacinação contra gripe
+    const abrirLinkGripe = async () => {
+        // Link corrigido para a campanha de vacinação contra gripe
+        const url = 'https://www.pmitatinga.sp.gov.br/noticia/860/dia-d-de-vacinacao-contra-gripe-sarampo/';
+        const supported = await Linking.canOpenURL(url);
+        
+        if (supported) {
+            await Linking.openURL(url);
+        } else {
+            console.error("Não foi possível abrir o link: " + url);
+        }
+    };
+    
     return(
         <View style={styles.container}>
             {/* Topo com título e ícone de notificações */}
@@ -17,7 +43,7 @@ export default function List () {
                 <Text style={{fontSize:24, fontWeight:"bold"}}>
                     Vacina
                 </Text>
-                <Text style={{fontSize:24, fontWeight:"bold", color:'#236EFA'}}>
+                <Text style={{fontSize:24, fontWeight:"bold", color:'#1E90FF'}}>
                     Plus
                 </Text>
                 <TouchableOpacity>
@@ -32,14 +58,20 @@ export default function List () {
                 <Text style={{fontSize:17, fontWeight:'bold', marginTop:60,marginLeft:15}}>
                     Campanhas
                 </Text>
-                 <TouchableOpacity style={styles.ButtomLogo}>
+                 <TouchableOpacity 
+                    style={styles.ButtomLogo}
+                    onPress={abrirLinkVacinaMais}
+                 >
                     <Image
                         style={styles.ImageLogo}
                         source={vacina} 
                         resizeMode="contain"
                     />
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.ButtomLogo}>
+                <TouchableOpacity 
+                    style={styles.ButtomLogo}
+                    onPress={abrirLinkGripe}
+                >
                     <Image
                         style={styles.ImageLogo}
                         source={gripe} 
@@ -73,7 +105,7 @@ export default function List () {
                         />
                     </TouchableOpacity>
                 </View>
-                <View style={{flexDirection:'row', justifyContent:'space-around', width: '100%'}} >
+                <View style={{flexDirection:'row', justifyContent:'space-between', width: '87%'}} >
                     <Text style={styles.TextFunc}>Vacina</Text>
                     <Text style={styles.TextFunc}>Histórico{'\n'}Médico</Text>
                     <Text style={styles.TextFunc}>Saúde +{'\n'}Educação</Text>

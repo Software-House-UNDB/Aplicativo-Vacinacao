@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 59,
     borderColor: 'gray',
-    borderBottomWidth: 2,
+    borderBottomWidth: 1,
     backgroundColor: '#fff',
     zIndex: 1,
   },
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   },
 
   modalContent: {
-    backgroundColor: '#6A9CF8',
+    backgroundColor: '#fff',
     borderRadius: 20,
     padding: 16,
     width: '90%',
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   },
 
   modalHeader: {
-    backgroundColor: '#236EFA',
+    backgroundColor: '#1E90FF',
     paddingVertical: 10,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
@@ -119,7 +119,16 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     borderRadius: 6,
     fontSize: 16,
-    borderWidth:1
+    borderWidth:0,
+    shadowColor: "#000",
+    shadowOffset: {
+        width: 0,
+        height: 3,
+    },
+    shadowOpacity: 0.27,
+    shadowRadius: 4.65,
+    
+    elevation: 7,
   },
 
   timeRow: {
@@ -127,6 +136,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: 5,
     marginBottom: 12,
+    
   },
 
   datePickerButton: {
@@ -135,7 +145,8 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     paddingVertical: 8,
     paddingHorizontal: 8,
-    borderWidth: 1,
+    borderWidth: 0.5,
+
   },
 
   datePickerText: {
@@ -148,7 +159,7 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: '#236EFA',
+    backgroundColor: '#1E90FF',
     paddingHorizontal: 50,
     paddingVertical: 14,
     borderRadius: 4,
@@ -156,6 +167,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     width: '50%',
     elevation: 5,
+    
     
   },
 

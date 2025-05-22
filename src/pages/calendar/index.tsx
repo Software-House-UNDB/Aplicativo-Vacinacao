@@ -12,7 +12,7 @@ export default function Calendar () {
                 <Text style={{fontSize:24, fontWeight:"bold"}}>
                     Vacina
                 </Text>
-                <Text style={{fontSize:24, fontWeight:"bold", color:'#236EFA'}}>
+                <Text style={{fontSize:24, fontWeight:"bold", color:'#1E90FF'}}>
                     Plus
                 </Text>
                 <TouchableOpacity>

@@ -72,13 +72,13 @@ export default function LembretesTela() {
         <Text style={{fontSize:24, fontWeight:"bold"}}>
             Vacina
         </Text>
-        <Text style={{fontSize:24, fontWeight:"bold", color:'#236EFA'}}>
+        <Text style={{fontSize:24, fontWeight:"bold", color:'#1E90FF'}}>
             Plus
         </Text>
         <TouchableOpacity>
             <AntDesign 
             name="bells"
-            style={{fontSize: 34, paddingLeft: '52%'}}
+            style={{fontSize: 33, paddingLeft: '52%'}}
             />
         </TouchableOpacity>    
       </View>
@@ -167,6 +167,7 @@ export default function LembretesTela() {
               <TouchableOpacity style={styles.button} onPress={hideModal}>
                 <Text style={styles.buttonText}>Salvar</Text>
               </TouchableOpacity>
+              
             </View>
           </Animated.View>
         </View>

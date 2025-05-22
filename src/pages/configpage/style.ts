@@ -25,7 +25,6 @@ export const style = StyleSheet.create({
     },
     avatarContainer: {
         marginVertical: 20,
-        flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
     },
@@ -34,6 +33,7 @@ export const style = StyleSheet.create({
         height: 100,
         borderRadius: 50,
         backgroundColor: '#E0E0E0',
+        marginBottom: 15,
     },
     avatarText:{
         fontSize: 17,

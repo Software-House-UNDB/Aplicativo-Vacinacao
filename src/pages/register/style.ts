@@ -24,7 +24,7 @@ export const style = StyleSheet.create({
         },
         boxInput:{
             flexDirection:'row',
-            backgroundColor:'#d0f4ff',
+            backgroundColor:'#9BBEFF',
             borderRadius: 10, 
             shadowOffset: {
                 width: 0,
@@ -75,7 +75,7 @@ export const style = StyleSheet.create({
             width: '80%',
             height: 50,
             borderRadius: 10,
-            backgroundColor: '#069aca',
+            backgroundColor: '#1E90FF',
             justifyContent: 'center',
             alignItems: 'center',
             shadowOffset: {

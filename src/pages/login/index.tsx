@@ -22,11 +22,9 @@ export default function Login () {
         <View style={style.container}>
             {/* Área superior com logo e mensagem de boas-vindas */}
             <View style={style.boxTop}>
-                <Image
-                    style={style.logo}
-                    source={Logo} 
-                    resizeMode="contain"
-                />
+                <Text style={{fontSize:28, fontWeight:"bold"}}>
+                    Vacina<Text style={{color:'#1E90FF'}}>Plus</Text>
+                </Text>
                 <Text style={style.text}>Seja Bem-Vindo!</Text>
             </View >
             {/* Área do formulário de login */}

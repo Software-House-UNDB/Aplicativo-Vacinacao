@@ -6,6 +6,7 @@ export const style = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#fff',
     },
     boxTop: {
         position: 'absolute',
@@ -18,7 +19,7 @@ export const style = StyleSheet.create({
         flexDirection: 'row',
         paddingTop: 59,
         borderColor: 'gray',
-        borderBottomWidth: 2,
+        borderBottomWidth: 1,
         backgroundColor: '#fff',
         zIndex: 1,
         

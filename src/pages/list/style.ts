@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#fff',
         
     },
     boxTop: {
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingTop: 59,
         borderColor: 'gray',
-        borderBottomWidth: 2,
+        borderBottomWidth: 1,
         backgroundColor: '#fff',
         zIndex: 1,
         
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
         
     },
     ImageLogo:{
-        width:'90%',
+        width:'80%',
         height:160,
         borderRadius:25
 

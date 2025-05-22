@@ -22,7 +22,7 @@ export const style = StyleSheet.create({
     RenovSenha:{
         marginTop: 8,
         marginLeft: 8,
-        color: '#0899c7'
+        color: '#1E90FF'
     },
     boxButton:{
         height: Dimensions.get("window").height/3,
@@ -38,7 +38,7 @@ export const style = StyleSheet.create({
     text:{
         fontSize: 24,
         fontWeight: 'bold',
-        marginTop: 20
+        marginTop: 24
         
         
     },
@@ -51,15 +51,14 @@ export const style = StyleSheet.create({
     },
     boxInput:{
         width: '100%',
-        borderWidth: 1,
+        borderWidth: 0,
         borderRadius: 10,
         height: 40,
         marginTop: 10,
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: 10,
-        backgroundColor:'#d0f4ff',
-        borderColor: '#d0f4ff',
+        backgroundColor:'#9BBEFF',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -82,7 +81,7 @@ export const style = StyleSheet.create({
         height: 50,
         width: '45%',
         borderRadius: 10,
-        backgroundColor: '#069aca',
+        backgroundColor: '#1E90FF',
         alignItems: 'center',
         shadowColor: "#000",
         shadowOffset: {

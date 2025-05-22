@@ -55,7 +55,7 @@ export default function MyTabBar({ navigation }: any) {
         
         return {
             fontSize: 34,
-            color: activeTab === tabName ? '#069aca' : 'black',
+            color: activeTab === tabName ? '#1E90FF' : 'black',
         };
     };
     
