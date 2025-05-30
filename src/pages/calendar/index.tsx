@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
           justifyContent: 'center',
           flexDirection: 'row',
           paddingTop: 59,
-          paddingBottom: 20,
+          paddingBottom: 16,
           borderColor: 'gray',
           borderBottomWidth: 1,
           backgroundColor: '#fff',
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#2d4150',
     textAlign: 'center',
-    marginBottom: 22,
+    marginBottom: 20,
   },
   customHeader: {
     flexDirection: 'row',
