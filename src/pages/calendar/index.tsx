@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Platform, Modal } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Calendar } from 'react-native-calendars';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
 import 'moment/locale/pt-br'; // Importa a localização para português do Brasil
 
@@ -14,6 +15,18 @@ const MyCalendarScreen: React.FC<MyCalendarScreenProps> = () => {
   // O estado para a data selecionada pode ser uma string,
   // pois é o que a biblioteca usa para 'markedDates'
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [currentDate, setCurrentDate] = useState(moment());
+  const [showPicker, setShowPicker] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const onDateChange = (event: any, selectedDate?: Date) => {
+    setShowPicker(Platform.OS === 'ios'); // Fecha o picker apenas no Android
+    if (selectedDate) {
+      const newDate = moment(selectedDate);
+      setCurrentDate(newDate);
+      setSelectedDate(newDate.format('YYYY-MM-DD'));
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -31,10 +44,11 @@ const MyCalendarScreen: React.FC<MyCalendarScreenProps> = () => {
             />
         </TouchableOpacity>    
       </View>
-      <Text style={styles.headerText}>Seu Calendário Reativado</Text>
+      <Text style={styles.headerText}>Calendário Vacina<Text style={{color:"#1E90FF"}}>Plus</Text></Text>
+  
       <Calendar
         // Propriedade para definir a data inicial no calendário
-        current={moment().format('YYYY-MM-DD')} // Exibe o mês atual ao iniciar
+        current={currentDate.format('YYYY-MM-DD')} // Usar currentDate ao invés de moment()
 
         // Marca o dia selecionado
         markedDates={
@@ -68,10 +82,13 @@ const MyCalendarScreen: React.FC<MyCalendarScreenProps> = () => {
           const year = momentDate.format('YYYY');  // Ex: "2025"
 
           return (
-            <View style={styles.customHeader}>
+            <TouchableOpacity 
+              style={styles.customHeader}
+              onPress={() => setShowPicker(true)}
+            >
               <Text style={styles.headerMonth}>{month}</Text>
               <Text style={styles.headerYear}>{year}</Text>
-            </View>
+            </TouchableOpacity>
           );
         }}
         // Estilização do calendário com a cor padrão #1E90FF
@@ -102,9 +119,48 @@ const MyCalendarScreen: React.FC<MyCalendarScreenProps> = () => {
         }}
       />
       {selectedDate && (
-        <Text style={styles.selectionText}>
-          Você selecionou: <Text style={{ fontWeight: 'bold' }}>{selectedDate}</Text>
-        </Text>
+        <View>
+          <Text style={styles.selectionText}>
+            Você selecionou: <Text style={{ fontWeight: 'bold' }}>{selectedDate}</Text>
+          </Text>
+          <TouchableOpacity 
+            style={styles.eventButton}
+            onPress={() => setModalVisible(true)}
+          >
+            <Text style={styles.eventButtonText}>Ver Eventos</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalTitle}>Eventos para {selectedDate}</Text>
+            <Text style={styles.modalText}>Nenhum evento cadastrado para esta data.</Text>
+            
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={() => setModalVisible(false)}
+            >
+              <Text style={styles.closeButtonText}>Fechar</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
+      {showPicker && (
+        <DateTimePicker
+          value={currentDate.toDate()}
+          mode="date"
+          display="default"
+          onChange={onDateChange}
+          locale="pt-BR"
+        />
       )}
     </View>
   );
@@ -132,6 +188,7 @@ const styles = StyleSheet.create({
           zIndex: 1,
       },
   headerText: {
+    marginTop: 90,
     fontSize: 24,
     fontWeight: 'bold',
     color: '#2d4150',
@@ -159,6 +216,66 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     color: '#2d4150',
+  },
+  eventButton: {
+    backgroundColor: '#1E90FF',
+    padding: 15,
+    borderRadius: 10,
+    marginHorizontal: 50,
+    marginTop: 10,
+    alignItems: 'center',
+  },
+  eventButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  modalView: {
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    width: '80%',
+  },
+  modalTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 15,
+    color: '#2d4150',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+    fontSize: 16,
+    color: '#666',
+  },
+  closeButton: {
+    backgroundColor: '#1E90FF',
+    borderRadius: 10,
+    padding: 10,
+    elevation: 2,
+    marginTop: 10,
+    minWidth: 100,
+    alignItems: 'center',
+  },
+  closeButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
