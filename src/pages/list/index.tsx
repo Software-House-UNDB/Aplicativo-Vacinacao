@@ -81,6 +81,7 @@ export default function List () {
                 
             </View>
             {/* Atalhos para funcionalidades principais */}
+            <Text style={{fontSize: 17, fontWeight:'bold'}}>Minha Saúde</Text>
             <View style={styles.boxBottom}>
                 <View style={styles.AreaFuncButtom}>
                     <TouchableOpacity style={styles.ButtomFunc}>
