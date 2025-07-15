@@ -60,7 +60,10 @@ export default function User() {
                     <Text style={style.settingsText}>Análise de Histórico</Text>
                     <AntDesign name="right" size={20} color="#000000" />
                 </TouchableOpacity>
-                <TouchableOpacity style={style.settingsItem}>
+                <TouchableOpacity 
+                    style={style.settingsItem}
+                    onPress={() => navigation.navigate('SobreNos')}
+                >
                     <Text style={style.settingsText}>Sobre o VacinaPLUS</Text>
                     <AntDesign name="right" size={20} color="#000000" />
                 </TouchableOpacity>
