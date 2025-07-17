@@ -52,7 +52,7 @@ export const style = StyleSheet.create({
     sectionTitle: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#2E7D32',
+        color: '#1E90FF',
         marginBottom: 12,
         textAlign: 'left',
     },

@@ -67,6 +67,13 @@ export default function User() {
                     <Text style={style.settingsText}>Sobre o VacinaPLUS</Text>
                     <AntDesign name="right" size={20} color="#000000" />
                 </TouchableOpacity>
+                <TouchableOpacity 
+                    style={style.settingsItem}
+                    onPress={() => navigation.navigate('MinhaConta')}
+                >
+                    <Text style={style.settingsText}>Minha Conta</Text>
+                    <AntDesign name="right" size={20} color="#000000" />
+                </TouchableOpacity>
             </View>
         </ScrollView>
     );
