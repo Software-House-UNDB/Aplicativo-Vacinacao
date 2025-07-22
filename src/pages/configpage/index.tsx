@@ -24,7 +24,7 @@ export default function Configpage() {
                         <AntDesign name="user" size={60} color="#CCCCCC" style={{padding: 20}} />
                     </View>
                     <Text style={style.avatarText}>
-                        Josenildo Testador da Silva
+                        Lorem da Silva
                     </Text>
                 </View>
             </View>

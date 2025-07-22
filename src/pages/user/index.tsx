@@ -31,7 +31,7 @@ export default function User() {
                     </View>
                 </View>
                 <View style={style.infoCard}>
-                    <Text style={style.infoText}>Nome: Josenildo Testador da Silva</Text>
+                    <Text style={style.infoText}>Nome: Lorem da Silva</Text>
                     <Text style={style.infoText}>CPF: xxx-xxx-xxx-xx</Text>
                     <Text style={style.infoText}>Data de Nascimento: xx/xx/xxxx</Text>
                     <Text style={style.infoText}>Raça: xxxxxx</Text>
