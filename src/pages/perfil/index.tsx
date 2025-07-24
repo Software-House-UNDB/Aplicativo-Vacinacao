@@ -40,7 +40,7 @@ export default function Perfil() {
                     <Text style={style.label}>Nome Completo</Text>
                     <TextInput 
                         style={style.input}
-                        defaultValue="Josenildo Testador da Silva" // Valor pré-preenchido
+                        defaultValue="Lorem da Silva" // Valor pré-preenchido
                     />
                 </View>
                 
@@ -76,7 +76,7 @@ export default function Perfil() {
                     <Text style={style.label}>Email</Text>
                     <TextInput 
                         style={style.input}
-                        defaultValue="josenildo@email.com" // Valor pré-preenchido
+                        defaultValue="loremdasilva@email.com" // Valor pré-preenchido
                     />
                 </View>
                 
