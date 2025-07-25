@@ -10,6 +10,8 @@ import Perfil from "../pages/perfil";
 import Configpage from "../pages/configpage";
 import SobreNos from "../pages/sobreNos";
 import MinhaConta from "../pages/minhaConta";
+import Notifications from "../pages/notifications";
+
 
 export default function Routes (){
     const Stack = createStackNavigator()
@@ -66,8 +68,10 @@ export default function Routes (){
                 name="MinhaConta"
                 component={MinhaConta}
             />
-          
-           
+            <Stack.Screen
+                name="Notifications"
+                component={Notifications}
+            />
           
         </Stack.Navigator>
     )

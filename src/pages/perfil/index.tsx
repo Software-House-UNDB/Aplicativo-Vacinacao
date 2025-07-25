@@ -25,7 +25,7 @@ export default function Perfil() {
                 </TouchableOpacity>
                 {/* Título da tela dividido em duas partes com cores diferentes */}
                 <Text style={{fontSize:24, fontWeight:"bold", alignItems:'center'}}>
-                    Edição de perfil
+                    Informações Pessoais
                 </Text>
     
             </View>
@@ -49,7 +49,7 @@ export default function Perfil() {
                     <Text style={style.label}>CPF</Text>
                     <TextInput 
                         style={style.input}
-                        defaultValue="xxx-xxx-xxx-xx" // Valor pré-preenchido
+                        defaultValue="123-456-789.10" // Valor pré-preenchido
                     />
                 </View>
                 
@@ -58,7 +58,7 @@ export default function Perfil() {
                     <Text style={style.label}>Data de Nascimento</Text>
                     <TextInput 
                         style={style.input}
-                        defaultValue="xx/xx/xxxx" // Valor pré-preenchido
+                        defaultValue="01/02/2003" // Valor pré-preenchido
                     />
                 </View>
                 
@@ -67,16 +67,7 @@ export default function Perfil() {
                     <Text style={style.label}>Telefone</Text>
                     <TextInput 
                         style={style.input}
-                        defaultValue="(xx) xxxx-xxxx" // Valor pré-preenchido
-                    />
-                </View>
-                
-                {/* Grupo de input para Email */}
-                <View style={style.inputGroup}>
-                    <Text style={style.label}>Email</Text>
-                    <TextInput 
-                        style={style.input}
-                        defaultValue="josenildo@email.com" // Valor pré-preenchido
+                        defaultValue="(11) 98765-4321" // Valor pré-preenchido
                     />
                 </View>
                 
@@ -85,7 +76,7 @@ export default function Perfil() {
                     <Text style={style.label}>Endereço</Text>
                     <TextInput 
                         style={style.input}
-                        defaultValue="Rua xxx, Bairro xxx, Município xxxxxxx" // Valor pré-preenchido
+                        defaultValue="Rua das Flores, 123, Bairro Jardim, São Paulo - SP" // Valor pré-preenchido
                     />
                 </View>
                 

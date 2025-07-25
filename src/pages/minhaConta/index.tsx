@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, ScrollView, TextInput, Alert } from "react-native";
 import { style } from "./style";
 import { AntDesign, MaterialIcons } from '@expo/vector-icons';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 export default function MinhaConta() {
-    const navigation = useNavigation<NavigationProp<any>>();
     const [isEditing, setIsEditing] = useState({
         email: false,
         senha: false,
@@ -104,12 +102,6 @@ export default function MinhaConta() {
         <ScrollView style={style.container}>
             {/* Header com gradiente */}
             <View style={style.header}>
-                <TouchableOpacity 
-                    onPress={() => navigation.navigate('BottomRoutes', { screen: 'User' })}
-                    style={style.backButton}
-                >
-                    <AntDesign name="arrowleft" size={24} color="#FFFFFF" />
-                </TouchableOpacity>
                 <Text style={style.headerTitle}>Minha Conta</Text>
             </View>
 

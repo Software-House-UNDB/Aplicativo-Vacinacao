@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image, Linking } from 'react-native';
 import styles from './style';
 import { AntDesign } from '@expo/vector-icons';
@@ -7,9 +7,13 @@ import gripe from "../../assets/gripe.jpg";
 import vacine from "../../assets/vacine.png";  
 import historico from "../../assets/historico.png";
 import saude from "../../assets/saude.png";
+import NotificationBox from "../../components/NotificationBox";
+import { useNavigation } from '@react-navigation/native';
 
 // Tela principal após login, exibe campanhas e atalhos
 export default function List () {
+    const navigation = useNavigation();
+    const [notificationBoxVisible, setNotificationBoxVisible] = useState(false);
     
     // Função para abrir o link da campanha de vacinação
     const abrirLinkVacinaMais = async () => {
@@ -46,7 +50,7 @@ export default function List () {
                 <Text style={{fontSize:24, fontWeight:"bold", color:'#1E90FF'}}>
                     Plus
                 </Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => setNotificationBoxVisible(true)}>
                     <AntDesign 
                     name="bells"
                     style={{fontSize: 33, paddingLeft: '52%'}}
@@ -112,6 +116,12 @@ export default function List () {
                     <Text style={styles.TextFunc}>Saúde +{'\n'}Educação</Text>
                 </View>
             </View>
+            
+            {/* Componente de caixa de notificações */}
+            <NotificationBox 
+                visible={notificationBoxVisible} 
+                onClose={() => setNotificationBoxVisible(false)} 
+            />
         </View>
     )
 }

@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import { style } from "./style";
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
+import NotificationBox from "../../components/NotificationBox";
 
 
 // Tela de perfil do usuário
 export default function User() {
     // Adicionando hook de navegação
     const navigation = useNavigation<NavigationProp<any>>();
+    const [notificationBoxVisible, setNotificationBoxVisible] = useState(false);
     
     return (
         <ScrollView style={style.container}>
@@ -21,6 +23,9 @@ export default function User() {
                     <AntDesign name="arrowleft" size={24} color="#000000" />
                 </TouchableOpacity>
                 <Text style={style.headerText}>Perfil</Text>
+                <TouchableOpacity onPress={() => setNotificationBoxVisible(true)}>
+                    <AntDesign name="bells" size={24} color="#000000" />
+                </TouchableOpacity>
             </View>
 
             {/* Seção de informações do usuário */}
@@ -32,17 +37,20 @@ export default function User() {
                 </View>
                 <View style={style.infoCard}>
                     <Text style={style.infoText}>Nome: Josenildo Testador da Silva</Text>
-                    <Text style={style.infoText}>CPF: xxx-xxx-xxx-xx</Text>
-                    <Text style={style.infoText}>Data de Nascimento: xx/xx/xxxx</Text>
-                    <Text style={style.infoText}>Raça: xxxxxx</Text>
-                    <Text style={style.infoText}>CNS / Convênio: xxxxxxxxxxxx</Text>
-                    <Text style={style.infoText}>Telefone: (xx) xxxx-xxxx</Text>
+                    <Text style={style.infoText}>CPF: 123-456-789.10</Text>
+                    <Text style={style.infoText}>Data de Nascimento: 01/02/2003</Text>
+                    <Text style={style.infoText}>Raça: Branco</Text>
+                    <Text style={style.infoText}>CNS / Convênio: 789456123</Text>
+                    <Text style={style.infoText}>Telefone: (11) 98765-4321</Text>
                     <Text style={style.infoText}>Sexo: Masculino</Text>
-                </View>
-                <View style={style.emailCard}>
-                    <Text style={style.infoText}>Email: josenildo@email.com</Text>
-                    <Text style={style.infoText}>Endereço(opcional):</Text>
-                    <Text style={style.infoText}>Rua xxx, Bairro xxx, Município xxxxxxx</Text>
+                    
+                    <TouchableOpacity 
+                        style={style.editButton}
+                        onPress={() => navigation.navigate('Perfil')}
+                    >
+                        <Text style={style.editButtonText}>Editar Informações</Text>
+                        <MaterialIcons name="edit" size={20} color="#FFFFFF" />
+                    </TouchableOpacity>
                 </View>
             </View>
 
@@ -51,9 +59,9 @@ export default function User() {
                 <Text style={style.settingsHeader}>Conta e Informativo</Text>
                 <TouchableOpacity 
                     style={style.settingsItem}
-                    onPress={() => navigation.navigate('Perfil')}
+                    onPress={() => navigation.navigate('MinhaConta')}
                 >
-                    <Text style={style.settingsText}>Edição de Perfil</Text>
+                    <Text style={style.settingsText}>Informações da Conta</Text>
                     <AntDesign name="right" size={20} color="#000000" />
                 </TouchableOpacity>
                 <TouchableOpacity style={style.settingsItem}>
@@ -67,14 +75,13 @@ export default function User() {
                     <Text style={style.settingsText}>Sobre o VacinaPLUS</Text>
                     <AntDesign name="right" size={20} color="#000000" />
                 </TouchableOpacity>
-                <TouchableOpacity 
-                    style={style.settingsItem}
-                    onPress={() => navigation.navigate('MinhaConta')}
-                >
-                    <Text style={style.settingsText}>Minha Conta</Text>
-                    <AntDesign name="right" size={20} color="#000000" />
-                </TouchableOpacity>
             </View>
+            
+            {/* Componente de caixa de notificações */}
+            <NotificationBox 
+                visible={notificationBoxVisible} 
+                onClose={() => setNotificationBoxVisible(false)} 
+            />
         </ScrollView>
     );
 }

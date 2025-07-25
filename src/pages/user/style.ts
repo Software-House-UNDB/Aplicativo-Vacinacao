@@ -52,10 +52,20 @@ export const style = StyleSheet.create({
         marginBottom: 8,
         fontSize: 16,
     },
-    emailCard: {
-        backgroundColor: '#1E90FF',
-        borderRadius: 10,
-        padding: 15,
+    editButton: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        borderRadius: 8,
+        padding: 10,
+        marginTop: 10,
+    },
+    editButtonText: {
+        color: '#FFFFFF',
+        fontWeight: 'bold',
+        marginRight: 8,
+        fontSize: 16,
     },
     settingsSection: {
         marginTop: 20,

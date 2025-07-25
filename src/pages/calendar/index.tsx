@@ -5,6 +5,7 @@ import { Calendar } from 'react-native-calendars';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from 'moment';
 import 'moment/locale/pt-br'; // Importa a localização para português do Brasil
+import NotificationBox from "../../components/NotificationBox";
 
 // Configura o Moment.js para usar o locale pt-br globalmente
 moment.locale('pt-br');
@@ -18,6 +19,7 @@ const MyCalendarScreen: React.FC<MyCalendarScreenProps> = () => {
   const [currentDate, setCurrentDate] = useState(moment());
   const [showPicker, setShowPicker] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [notificationBoxVisible, setNotificationBoxVisible] = useState(false);
 
   const onDateChange = (event: any, selectedDate?: Date) => {
     setShowPicker(Platform.OS === 'ios'); // Fecha o picker apenas no Android
@@ -37,7 +39,7 @@ const MyCalendarScreen: React.FC<MyCalendarScreenProps> = () => {
         <Text style={{fontSize:24, fontWeight:"bold", color:'#1E90FF'}}>
             Plus
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => setNotificationBoxVisible(true)}>
             <AntDesign 
             name="bells"
             style={{fontSize: 33, paddingLeft: '52%'}}
@@ -162,6 +164,12 @@ const MyCalendarScreen: React.FC<MyCalendarScreenProps> = () => {
           locale="pt-BR"
         />
       )}
+
+      {/* Componente de caixa de notificações */}
+      <NotificationBox 
+          visible={notificationBoxVisible} 
+          onClose={() => setNotificationBoxVisible(false)} 
+      />
     </View>
   );
 };

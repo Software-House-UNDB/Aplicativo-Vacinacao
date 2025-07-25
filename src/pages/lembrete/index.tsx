@@ -5,6 +5,7 @@ import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import { AntDesign } from '@expo/vector-icons';
 import styles from './style';
+import NotificationBox from "../../components/NotificationBox";
 
 // Tela de lembretes de vacinação
 export default function LembretesTela() {
@@ -12,6 +13,7 @@ export default function LembretesTela() {
   const [mode,setMode] = useState('date');
   const [showDatePicker,setShowDatePicker] = useState<boolean>(false);
   const [showTimePicker, setShowTimePicker] = useState<boolean>(false);
+  const [notificationBoxVisible, setNotificationBoxVisible] = useState(false);
 
   const  dateStr = format(date, 'yyyy-MM-dd');
   const  timeStr = format(date, 'HH:mm');
@@ -75,7 +77,7 @@ export default function LembretesTela() {
         <Text style={{fontSize:24, fontWeight:"bold", color:'#1E90FF'}}>
             Plus
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => setNotificationBoxVisible(true)}>
             <AntDesign 
             name="bells"
             style={{fontSize: 33, paddingLeft: '52%'}}
@@ -172,6 +174,12 @@ export default function LembretesTela() {
           </Animated.View>
         </View>
       </Modal>
+
+      {/* Componente de caixa de notificações */}
+      <NotificationBox 
+          visible={notificationBoxVisible} 
+          onClose={() => setNotificationBoxVisible(false)} 
+      />
     </View>
   );
 }

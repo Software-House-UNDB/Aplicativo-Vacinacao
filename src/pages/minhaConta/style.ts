@@ -28,12 +28,6 @@ export const style = StyleSheet.create({
         elevation: 8,
     },
     
-    backButton: {
-        marginTop: 10,
-        padding: 8,
-        borderRadius: 20,
-        backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    },
     
     headerTitle: {
         fontSize: 24,
@@ -42,7 +36,6 @@ export const style = StyleSheet.create({
         flex: 1,
         textAlign: 'center',
         marginTop: 15,
-        marginLeft: -30,
     },
     
     // Seção do perfil

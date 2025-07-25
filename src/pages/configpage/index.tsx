@@ -1,9 +1,8 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { style } from "./style";
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
-
 
 // Tela de perfil do usuário
 export default function Configpage() {
@@ -34,7 +33,7 @@ export default function Configpage() {
                     <AntDesign name="user" size={50} color="#black" style={{padding: 10}} />
                     <Text style={style.editButtonText}>Conta</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={style.editButton} onPress={() => navigation.navigate("User")}>
+                <TouchableOpacity style={style.editButton} onPress={() => navigation.navigate("Notifications")}>
                     <AntDesign name="bells" size={50} color="#black" style={{padding: 10}} />
                     <Text style={style.editButtonText}>Notificações</Text>
                 </TouchableOpacity>
@@ -52,10 +51,6 @@ export default function Configpage() {
                 </TouchableOpacity>
             </View>  
         </ScrollView>
-        
-
-    
-        
     );
 
 }
