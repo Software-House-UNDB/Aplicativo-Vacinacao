@@ -40,7 +40,7 @@ export default function User() {
                     <Text style={style.infoText}>Sexo: Masculino</Text>
                 </View>
                 <View style={style.emailCard}>
-                    <Text style={style.infoText}>Email: loremdasilva@email.com</Text>
+                    <Text style={style.infoText}>Email: josenildo@email.com</Text>
                     <Text style={style.infoText}>Endereço(opcional):</Text>
                     <Text style={style.infoText}>Rua xxx, Bairro xxx, Município xxxxxxx</Text>
                 </View>

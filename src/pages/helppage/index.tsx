@@ -4,7 +4,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { styles } from './style';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 
-
+interface Ajuda {
+    navigation?: any;
+}
 
 const Ajuda: React.FC<Ajuda> = ({ navigation }) => {
   const handleEmailPress = async () => {
