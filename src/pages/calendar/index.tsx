@@ -71,17 +71,20 @@ const MyCalendarScreen: React.FC<MyCalendarScreenProps> = () => {
         // O TypeScript vai inferir o tipo ou você pode usar `any` se ele reclamar.
         onDayPress={(day: any) => { // Use 'any' aqui para evitar o erro do DateObject
           setSelectedDate(day.dateString); // day.dateString é 'YYYY-MM-DD'
-          console.log('Dia selecionado:', day.dateString);
+        }}
+        // Callback para quando o mês muda (navegação por setas ou swipe)
+        onMonthChange={(month: any) => {
+          const newDate = moment(month.dateString);
+          setCurrentDate(newDate);
         }}
         // Permite a navegação por deslize entre os meses
         enableSwipeMonths={true}
         // Configuração do cabeçalho para exibir Mês e Ano em Português
         renderHeader={(date) => {
-          // O objeto `date` aqui é um Moment-like object internamente.
-          // Usamos moment para formatar.
-          const momentDate = moment(date.timestamp); // Converte para um objeto Moment
-          const month = momentDate.format('MMMM'); // Ex: "Maio" (em português por causa do moment.locale)
-          const year = momentDate.format('YYYY');  // Ex: "2025"
+          // Usar o currentDate do estado ao invés do date da biblioteca
+          // para garantir que o cabeçalho seja atualizado quando navegamos
+          const month = currentDate.format('MMMM'); // Ex: "Maio" (em português por causa do moment.locale)
+          const year = currentDate.format('YYYY');  // Ex: "2025"
 
           return (
             <TouchableOpacity 
