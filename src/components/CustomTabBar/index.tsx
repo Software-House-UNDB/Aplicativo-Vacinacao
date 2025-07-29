@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from 'react';
 import { TouchableOpacity, View, Animated } from "react-native";
 import { style } from "./style";
 import { AntDesign } from '@expo/vector-icons';
