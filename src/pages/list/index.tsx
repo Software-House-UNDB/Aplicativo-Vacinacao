@@ -9,10 +9,15 @@ import historico from "../../assets/historico.png";
 import saude from "../../assets/saude.png";
 import NotificationBox from "../../components/NotificationBox";
 import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '@/src/@types/navigation';
 
 // Tela principal após login, exibe campanhas e atalhos
 export default function List () {
-    const navigation = useNavigation();
+
+    type NavigationProps = StackNavigationProp<RootStackParamList, 'ListaVacinas'>;
+
+    const navigation = useNavigation<NavigationProps>();
     const [notificationBoxVisible, setNotificationBoxVisible] = useState(false);
     
     // Função para abrir o link da campanha de vacinação
@@ -88,7 +93,7 @@ export default function List () {
             <Text style={{fontSize: 17, fontWeight:'bold'}}>Minha Saúde</Text>
             <View style={styles.boxBottom}>
                 <View style={styles.AreaFuncButtom}>
-                    <TouchableOpacity style={styles.ButtomFunc}>
+                    <TouchableOpacity style={styles.ButtomFunc} onPress={() => navigation.navigate('ListaVacinas')}>
                         <Image
                             style={{ width:90,height:90}}
                             source={vacine} 
