@@ -11,6 +11,7 @@ import Configpage from "../pages/configpage";
 import SobreNos from "../pages/sobreNos";
 import MinhaConta from "../pages/minhaConta";
 import Notifications from "../pages/notifications";
+import VacinaTela from "../pages/listaVacinas";
 
 
 export default function Routes (){
@@ -59,6 +60,10 @@ export default function Routes (){
             <Stack.Screen
                 name="Configpage"
                 component={Configpage}
+            />
+            <Stack.Screen 
+                name="ListaVacinas"
+                component={VacinaTela}
             />
             <Stack.Screen
                 name="SobreNos"
